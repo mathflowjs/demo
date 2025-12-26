@@ -1,10 +1,33 @@
 import "./style.css";
-import solve from "./solve";
+import { createContext, solve } from "@mathflowjs/mathflow";
 
 // select elements
 const solveBtn = document.querySelector<HTMLButtonElement>("button")!;
 const textarea = document.querySelector<HTMLTextAreaElement>("textarea")!;
 const main = document.querySelector<HTMLElement>("main")!;
+
+// context
+const context = createContext()
+
+// a function that solves the given expression using mathflow's evaluate function
+function solveAndDisplay(expr: string = ""): string {
+	let result: string = "";
+
+	try {
+		const output = solve(context, expr);
+
+		if (output.solution.length > 2) {
+			output.solution.forEach((step) => (result += `<div>= ${step}</div>`));
+			result += `<div><br/>Answer: ${output.value}</div>`;
+		} else {
+			result += `<div>Answer: ${output.value}</div>`;
+		}
+	} catch (error) {
+		result = `${error}`;
+	}
+
+	return result;
+}
 
 // a function used to respond to user input with a solution
 function respond(): void {
@@ -12,7 +35,7 @@ function respond(): void {
 
 	main.innerHTML += `<div class="right"><div>${input.replace(/\n/g, "<br/>")}</div></div>`;
 
-	const answer = solve(input);
+	const answer = solveAndDisplay(input);
 
 	main.innerHTML += `<div class="left"><div>${answer}</div></div>`;
 

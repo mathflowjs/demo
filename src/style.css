@@ -123,12 +123,13 @@ svg {
 
 textarea {
   flex-grow: 1;
-  resize: none;
-  height: 60px;
+  resize: vertical;
+  min-height: 60px;
   padding: 0.8em;
   border-radius: 0.5rem;
   border: 1px solid rgba(95, 95, 95, 0.87);
   outline: none;
+  field-sizing: content;
 }
 
 .logo {
