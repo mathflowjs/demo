@@ -4,9 +4,9 @@
 
 # Mathflow | Demo
 
-A simple and interactive application demostrating the power of [Mathflow](https://github.com/henryhale/mathflow).
+A simple and interactive application demostrating the power of [Mathflow](https://github.com/mathflowjs/mathflow).
 
-[Live Demo 🚀](https://henryhale.github.io/mathflow-demo/)
+[Live Demo](https://mathflowjs.github.io/demo/)🚀
 
 ![](./public/screenshot.png)
 
